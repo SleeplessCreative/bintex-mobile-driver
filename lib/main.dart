@@ -1,4 +1,4 @@
-import 'package:bintex_mobile_driver/app/locator.dart';
+import 'app/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 
