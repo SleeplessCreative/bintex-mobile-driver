@@ -1,3 +1,5 @@
+import 'package:bintex_mobile_driver/ui/widgets/auth_body.dart';
+import 'package:bintex_mobile_driver/ui/widgets/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,13 +14,16 @@ class AuthView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text(model.title),
-              RaisedButton(
-                child: Text(model.buttonText),
-                onPressed: () => model.navigateToHome(),
-              )
+              Expanded(
+                child: AuthHeaderSection(
+                  appRole: model.appRole,
+                ),
+              ),
+              Expanded(
+                child: AuthBodySection(),
+              ),
             ],
           ),
         ),
