@@ -13,8 +13,8 @@ import '../ui/views/auth/auth_view.dart';
 import '../ui/views/home/home_view.dart';
 
 class Routes {
-  static const String homeView = '/';
-  static const String authView = '/auth-view';
+  static const String homeView = '/home-view';
+  static const String authView = '/';
   static const all = <String>{
     homeView,
     authView,
