@@ -30,6 +30,9 @@ dependencies:
   #svg
   flutter_svg:
 
+  #http
+  http: ^0.12.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
