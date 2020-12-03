@@ -22,16 +22,19 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final thirdPartyServicesModule = _$ThirdPartyServicesModule();
   gh.lazySingleton<ApiService>(() => ApiService());
-  gh.lazySingleton<DialogService>(
-      () => thirdPartyServicesModule.dialogServices);
+  gh.lazySingleton<DialogService>(() => thirdPartyServicesModule.dialogService);
   gh.lazySingleton<NavigationService>(
       () => thirdPartyServicesModule.navigationService);
+  gh.lazySingleton<SnackbarService>(
+      () => thirdPartyServicesModule.snackBarService);
   return get;
 }
 
 class _$ThirdPartyServicesModule extends ThirdPartyServicesModule {
   @override
-  DialogService get dialogServices => DialogService();
+  DialogService get dialogService => DialogService();
   @override
   NavigationService get navigationService => NavigationService();
+  @override
+  SnackbarService get snackBarService => SnackbarService();
 }

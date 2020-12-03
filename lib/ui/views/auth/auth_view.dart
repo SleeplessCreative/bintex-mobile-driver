@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../values.dart';
@@ -44,10 +45,29 @@ class AuthView extends StatelessWidget {
                   secondSectionBox(
                     context: context,
                     color: BintexColor.primary200(),
-                    child: authTextField(
-                      hintText: model.passwordInputHint,
-                      controller: inputPasswordController,
-                      passwordInput: true,
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 9,
+                          child: authTextField(
+                            hintText: model.passwordInputHint,
+                            controller: inputPasswordController,
+                            passwordInput: !model.showPassword,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: InkWell(
+                            onTap: () => model.toggleShowPassword(),
+                            child: Container(
+                              child: SvgPicture.asset(
+                                model.activeEye,
+                                color: BintexColor.primary100(0.6),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   InkWell(
