@@ -1,4 +1,6 @@
+import 'package:bintex_mobile_driver/datamodels/api_message.dart';
 import 'package:http/http.dart' show Client;
+import 'dart:convert' show json;
 import 'package:injectable/injectable.dart';
 
 import '../datamodels/user.dart';
@@ -8,16 +10,17 @@ class ApiService {
   final String baseUrl = "https://staging.bintex.id";
   Client client = Client();
 
-  Future<bool> login(User data) async {
+  Future<String> login(User data) async {
     final response = await client.post(
       "$baseUrl/api/auth/login",
       headers: {"content-type": "application/json"},
       body: userToJson(data),
     );
+
     if (response.statusCode == 202) {
-      return true;
+      return "Logged in.";
     } else {
-      return false;
+      return ApiMessage.fromJson(response.body).message;
     }
   }
 }

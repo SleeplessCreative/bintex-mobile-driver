@@ -164,7 +164,7 @@ Container secondSectionBox({
     height: getBoxHeight(context),
     margin: EdgeInsets.symmetric(
       horizontal: getScreenWidth(context) / 10,
-      vertical: 5,
+      vertical: getScreenHeight(context) / 90,
     ),
     padding: EdgeInsets.only(
       left: 30.0,
