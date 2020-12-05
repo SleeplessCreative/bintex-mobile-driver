@@ -1,0 +1,52 @@
+{
+   "histories":[
+      {
+         "districtOrigin":"Medan",
+         "agentOrigin":"Agen 692",
+         "districtDestination":"Bandara SSQ",
+         "agentDestination":"Pekanbaru"
+      },
+      {
+         "districtOrigin":"Tualang",
+         "agentOrigin":"Agen 693",
+         "districtDestination":"Kualanamu",
+         "agentDestination":"Medan"
+      },
+      {
+         "districtOrigin":"Tualang",
+         "agentOrigin":"Agen 694",
+         "districtDestination":"Amplas",
+         "agentDestination":"Medan"
+      },
+      {
+         "districtOrigin":"Medan",
+         "agentOrigin":"Agen 695",
+         "districtDestination":"Terminal",
+         "agentDestination":"Tualang"
+      },
+      {
+         "districtOrigin":"ehe",
+         "agentOrigin":"Agen 695",
+         "districtDestination":"ehehe",
+         "agentDestination":"Tualang"
+      },
+      {
+         "districtOrigin":"Tualang",
+         "agentOrigin":"Agen 694",
+         "districtDestination":"Amplas",
+         "agentDestination":"Medan"
+      },
+      {
+         "districtOrigin":"Medan",
+         "agentOrigin":"Agen 695",
+         "districtDestination":"Terminal",
+         "agentDestination":"Tualang"
+      },
+      {
+         "districtOrigin":"ehe",
+         "agentOrigin":"Agen 695",
+         "districtDestination":"ehehe",
+         "agentDestination":"Tualang"
+      }
+   ]
+}
