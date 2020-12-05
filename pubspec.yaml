@@ -36,6 +36,9 @@ dependencies:
   #email validator
   email_validator: ^1.0.6
 
+  #path
+  path_provider: ^1.6.24
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +53,8 @@ flutter:
   assets:
     - lib/assets/image/auth_header/
     - lib/assets/image/auth_body/
+    - lib/assets/image/home/
+    - lib/datamodels/data.json
 
   fonts:
     - family: CrimsonText
@@ -61,5 +66,6 @@ flutter:
     - family: OpenSans
       fonts:
       - asset: lib/assets/font/OpenSans-Regular.ttf
+        style: normal
       - asset: lib/assets/font/OpenSans-SemiBold.ttf
         weight: 600
