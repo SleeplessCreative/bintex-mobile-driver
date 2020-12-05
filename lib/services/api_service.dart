@@ -1,6 +1,5 @@
 import 'package:bintex_mobile_driver/datamodels/api_message.dart';
 import 'package:http/http.dart' show Client;
-import 'dart:convert' show json;
 import 'package:injectable/injectable.dart';
 
 import '../datamodels/user.dart';

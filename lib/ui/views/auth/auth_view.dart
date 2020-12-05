@@ -1,7 +1,9 @@
+import 'package:bintex_mobile_driver/ui/custom_widget/widgets/bintex_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../custom_widget/custom_widget.dart';
 import '../../values.dart';
 import 'auth_view_widget.dart';
 import 'auth_viewmodel.dart';
@@ -30,26 +32,26 @@ class AuthView extends StatelessWidget {
               ),
               secondSection(
                 children: <Widget>[
-                  secondSectionLabel(
+                  bintexLabel(
                     context: context,
                     text: model.loginLabel,
                   ),
-                  secondSectionBox(
+                  bintexBox(
                     context: context,
                     color: BintexColor.primary200(),
-                    child: authTextField(
+                    child: bintexTextField(
                       hintText: model.emailInputHint,
                       controller: inputEmailController,
                     ),
                   ),
-                  secondSectionBox(
+                  bintexBox(
                     context: context,
                     color: BintexColor.primary200(),
                     child: Row(
                       children: <Widget>[
                         Expanded(
                           flex: 9,
-                          child: authTextField(
+                          child: bintexTextField(
                             hintText: model.passwordInputHint,
                             controller: inputPasswordController,
                             passwordInput: !model.showPassword,
@@ -70,24 +72,19 @@ class AuthView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  InkWell(
-                    onTap: () => model.login(
+                  bintexButton(
+                    context: context,
+                    function: () => model.login(
                       email: inputEmailController.text.toString(),
                       password: inputPasswordController.text.toString(),
                     ),
-                    child: secondSectionBox(
-                      context: context,
-                      color: BintexColor.accent200(),
-                      child: secondSectionButtonLabel(
-                        model.loginButtonText,
-                        model.arrowRightDir,
-                      ),
-                    ),
+                    label: model.loginButtonText,
+                    leading: model.arrowRightDir,
                   ),
-                  secondSectionLabel(
+                  bintexLabel(
                     context: context,
                     text: model.forgotLabel,
-                    forgot: true,
+                    underline: true,
                   ),
                 ],
               ),
