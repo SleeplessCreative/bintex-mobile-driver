@@ -132,75 +132,6 @@ Container secondSection({List<Widget> children}) {
   );
 }
 
-Container secondSectionLabel(
-    {BuildContext context, String text, bool forgot: false}) {
-  return Container(
-    width: getScreenWidth(context),
-    margin: EdgeInsets.symmetric(
-      horizontal: 60,
-      vertical: 5,
-    ),
-    child: forgot
-        ? Center(
-            child: Text(
-              text,
-              style: labelTextStyle(underlined: true),
-            ),
-          )
-        : Text(
-            text,
-            style: labelTextStyle(),
-          ),
-  );
-}
-
-Container secondSectionBox({
-  BuildContext context,
-  Widget child,
-  Color color,
-}) {
-  return Container(
-    width: getScreenWidth(context),
-    height: getBoxHeight(context),
-    margin: EdgeInsets.symmetric(
-      horizontal: getScreenWidth(context) / 10,
-      vertical: getScreenHeight(context) / 90,
-    ),
-    padding: EdgeInsets.only(
-      left: 30.0,
-      right: 30.0,
-    ),
-    alignment: Alignment.centerLeft,
-    decoration: BoxDecoration(
-      color: color,
-      borderRadius: BorderRadius.all(
-        Radius.circular(17.0),
-      ),
-    ),
-    child: child,
-  );
-}
-
-TextFormField authTextField({
-  String hintText,
-  bool passwordInput: false,
-  TextEditingController controller,
-}) {
-  return TextFormField(
-    controller: controller,
-    obscureText: passwordInput,
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      focusedBorder: InputBorder.none,
-      enabledBorder: InputBorder.none,
-      errorBorder: InputBorder.none,
-      disabledBorder: InputBorder.none,
-      hintText: hintText,
-      hintStyle: textFieldHintStyle(),
-    ),
-  );
-}
-
 Container secondSectionButtonLabel(String text, String arrowRightDir) {
   return Container(
     child: Row(
@@ -216,14 +147,6 @@ Container secondSectionButtonLabel(String text, String arrowRightDir) {
         SvgPicture.asset(arrowRightDir),
       ],
     ),
-  );
-}
-
-TextStyle textFieldHintStyle() {
-  return TextStyle(
-    fontFamily: 'OpenSans',
-    fontSize: 16,
-    color: BintexColor.primary100(0.6),
   );
 }
 
