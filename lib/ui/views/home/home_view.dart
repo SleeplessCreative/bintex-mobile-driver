@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../values.dart';
+import 'home_view_widget.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,10 +11,35 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
+      onModelReady: (model) => model.getHistories(context),
       builder: (context, model, child) => Scaffold(
-        body: Center(
-          child: Text(model.title),
+        appBar: customAppBar(
+          context: context,
+          title: model.title,
         ),
+        bottomNavigationBar: InkWell(
+          onTap: () {
+            model.navigateToAdd();
+          },
+          child: customNavigationBar(
+            context: context,
+            plusDir: model.plusDir,
+          ),
+        ),
+        body: model.histories == null
+            ? loading()
+            : model.histories.histories.isEmpty
+                ? empty()
+                : SingleChildScrollView(
+                    child: Container(
+                      color: BintexColor.primary200(),
+                      child: listHistory(
+                        context: context,
+                        data: model.histories,
+                        rightArrowDir: model.rightArrowDir,
+                      ),
+                    ),
+                  ),
       ),
       viewModelBuilder: () => HomeViewModel(),
     );
