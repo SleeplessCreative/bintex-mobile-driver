@@ -1,0 +1,1 @@
+enum textField { destination, origin }

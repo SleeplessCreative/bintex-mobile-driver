@@ -1,13 +1,30 @@
-import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/locator.dart';
 import '../../../app/router.gr.dart';
 import '../../../datamodels/driver_trip.dart';
+import '../../../services/api_service.dart';
 
 class HomeViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
+  final ApiService _apiService = locator<ApiService>();
+
+  Future navigateToAdd() async {
+    await _navigationService.navigateTo(Routes.addView);
+  }
+
+  Future getTripHistory() async {
+    var result = await _apiService.getTripHistory('1');
+
+    List<History> data = List<History>();
+    result.forEach((element) {
+      data.add(new History.fromMap(element));
+    });
+
+    _histories = data;
+    notifyListeners();
+  }
 
   String _title = 'History';
   String get title => _title;
@@ -18,19 +35,6 @@ class HomeViewModel extends BaseViewModel {
   String _plusDir = 'lib/assets/image/home/plus.svg';
   String get plusDir => _plusDir;
 
-  Histories _histories;
-  Histories get histories => _histories;
-
-  Future navigateToAdd() async {
-    await _navigationService.navigateTo(Routes.addView);
-  }
-
-  Future getHistories(BuildContext context) async {
-    String data = await DefaultAssetBundle.of(context)
-        .loadString("lib/datamodels/data.json");
-
-    var historyResult = Histories.fromJson(data);
-    _histories = historyResult;
-    notifyListeners();
-  }
+  List<History> _histories;
+  List<History> get histories => _histories;
 }

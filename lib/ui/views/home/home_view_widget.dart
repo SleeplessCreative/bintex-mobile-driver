@@ -24,11 +24,14 @@ Widget loading() {
   );
 }
 
-Column listHistory(
-    {BuildContext context, Histories data, String rightArrowDir}) {
+Column listHistory({
+  BuildContext context,
+  List<History> data,
+  String rightArrowDir,
+}) {
   return Column(
     children: <Widget>[
-      for (var i in data.histories)
+      for (var i in data)
         Container(
           height: 100,
           margin: EdgeInsets.symmetric(

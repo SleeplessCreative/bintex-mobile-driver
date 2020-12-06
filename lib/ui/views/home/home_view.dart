@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-      onModelReady: (model) => model.getHistories(context),
+      onModelReady: (model) => model.getTripHistory(),
       builder: (context, model, child) => Scaffold(
         appBar: customAppBar(
           context: context,
@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
         ),
         body: model.histories == null
             ? loading()
-            : model.histories.histories.isEmpty
+            : model.histories.isEmpty
                 ? empty()
                 : SingleChildScrollView(
                     child: Container(

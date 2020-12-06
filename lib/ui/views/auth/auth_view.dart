@@ -1,9 +1,9 @@
-import 'package:bintex_mobile_driver/ui/custom_widget/widgets/bintex_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../custom_widget/custom_widget.dart';
+import '../../custom_widget/widgets/bintex_button.dart';
 import '../../values.dart';
 import 'auth_view_widget.dart';
 import 'auth_viewmodel.dart';

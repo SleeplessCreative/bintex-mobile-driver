@@ -1,4 +1,3 @@
-import 'package:bintex_mobile_driver/services/api_service.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -6,6 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../app/locator.dart';
 import '../../../app/router.gr.dart';
 import '../../../datamodels/user.dart';
+import '../../../services/api_service.dart';
 
 class AuthViewModel extends BaseViewModel {
   // Initializing viewmodel
