@@ -1,7 +1,7 @@
-import 'app/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import 'app/locator.dart';
 import 'app/router.gr.dart' as rt;
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bintex Driver',
-      initialRoute: rt.Routes.addView,
+      initialRoute: rt.Routes.homeView,
       onGenerateRoute: rt.Router().onGenerateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
     );

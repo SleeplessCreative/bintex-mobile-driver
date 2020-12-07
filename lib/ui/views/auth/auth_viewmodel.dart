@@ -1,11 +1,11 @@
-import 'package:bintex_mobile_driver/services/api_service.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/locator.dart';
-import '../../../app/router.gr.dart';
 import '../../../datamodels/user.dart';
+import '../../../services/api_service.dart';
+import '../home/home_view.dart';
 
 class AuthViewModel extends BaseViewModel {
   // Initializing viewmodel
@@ -20,7 +20,11 @@ class AuthViewModel extends BaseViewModel {
 
   // Function to service
   Future navigateToHome() async {
-    await _navigationService.navigateTo(Routes.homeView);
+    await _navigationService.replaceWithTransition(
+      HomeView(),
+      transition: NavigationTransition.RightToLeft,
+      duration: Duration(milliseconds: 300),
+    );
   }
 
   bool _isEmailValid(String email) {
@@ -31,7 +35,11 @@ class AuthViewModel extends BaseViewModel {
     return await _apiService.login(data);
   }
 
-  void login({String email, String password}) async {
+  Future loginBusyMode({String email, String password}) async {
+    return runBusyFuture(_login(email: email, password: password));
+  }
+
+  Future _login({String email, String password}) async {
     User data = User(
       email: email.trim(),
       password: password,
@@ -39,6 +47,7 @@ class AuthViewModel extends BaseViewModel {
 
     if (_isEmailValid(data.email)) {
       String loginStatus = await _getLoginStatusCode(data);
+      await Future.delayed(const Duration(milliseconds: 500));
 
       if (loginStatus == "Logged in.") {
         navigateToHome();
