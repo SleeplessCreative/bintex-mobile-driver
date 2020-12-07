@@ -40,6 +40,9 @@ dependencies:
   #type ahead in add page
   flutter_typeahead: ^1.9.1
 
+  # spinkit for loading animation
+  flutter_spinkit: "^4.1.2"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

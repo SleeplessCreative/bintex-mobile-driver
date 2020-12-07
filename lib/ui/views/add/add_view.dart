@@ -51,11 +51,12 @@ class AddView extends StatelessWidget {
                   ),
                 ),
                 bintexButton(
+                  context: context,
+                  model: model,
                   function: () {
                     model.driverId('1');
                     return model.addTrip();
                   },
-                  context: context,
                   label: model.goButtonLabel,
                 ),
               ],

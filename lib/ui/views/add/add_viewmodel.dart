@@ -1,19 +1,28 @@
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
 import '../../../app/locator.dart';
+import '../../../app/router.gr.dart';
 import '../../../datamodels/agent.dart';
 import '../../../datamodels/trip.dart';
 import '../../../services/api_service.dart';
-import 'package:stacked/stacked.dart';
 
 class AddViewModel extends BaseViewModel {
   final ApiService _apiService = locator<ApiService>();
+  final NavigationService _navigationService = locator<NavigationService>();
 
-  void addTrip() async {
+  Future navigateToHome() async {
+    await _navigationService.clearStackAndShow(Routes.homeView);
+  }
+
+  Future addTrip() async {
     Trip data = new Trip(
       agentOriginId: _agentOriginId,
       agentDestinationId: _agentDestinationId,
       driverId: _driverId,
     );
     await _apiService.addTrip(data);
+    return navigateToHome();
   }
 
   Future getAgentList() async {

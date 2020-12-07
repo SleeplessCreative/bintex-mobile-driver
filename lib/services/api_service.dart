@@ -16,7 +16,7 @@ class ApiService {
     final response = await client.post(
       "$baseUrl/api/auth/login",
       headers: {"content-type": "application/json"},
-      body: json.encode(data.toJson()),
+      body: data.toJson(),
     );
 
     if (response.statusCode == 202) {

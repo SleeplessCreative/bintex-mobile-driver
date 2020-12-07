@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../datamodels/driver_trip.dart';
@@ -17,8 +18,9 @@ Widget loading() {
   return Container(
     color: BintexColor.primary200(),
     child: Center(
-      child: CircularProgressIndicator(
-        valueColor: new AlwaysStoppedAnimation<Color>(BintexColor.accent100()),
+      child: SpinKitWave(
+        color: BintexColor.primary100(0.6),
+        size: 50.0,
       ),
     ),
   );

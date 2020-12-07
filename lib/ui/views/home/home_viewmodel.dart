@@ -2,16 +2,20 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/locator.dart';
-import '../../../app/router.gr.dart';
 import '../../../datamodels/driver_trip.dart';
 import '../../../services/api_service.dart';
+import '../add/add_view.dart';
 
 class HomeViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
   final ApiService _apiService = locator<ApiService>();
 
   Future navigateToAdd() async {
-    await _navigationService.navigateTo(Routes.addView);
+    await _navigationService.navigateWithTransition(
+      AddView(),
+      transition: NavigationTransition.RightToLeft,
+      duration: Duration(milliseconds: 300),
+    );
   }
 
   Future getTripHistory() async {

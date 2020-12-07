@@ -73,8 +73,9 @@ class AuthView extends StatelessWidget {
                     ),
                   ),
                   bintexButton(
+                    model: model,
                     context: context,
-                    function: () => model.login(
+                    function: () => model.loginBusyMode(
                       email: inputEmailController.text.toString(),
                       password: inputPasswordController.text.toString(),
                     ),
