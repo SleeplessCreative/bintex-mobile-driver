@@ -1,8 +1,8 @@
+import '../trip/trip_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/locator.dart';
-import '../../../app/router.gr.dart';
 import '../../../datamodels/agent.dart';
 import '../../../datamodels/trip.dart';
 import '../../../services/api_service.dart';
@@ -11,18 +11,17 @@ class AddViewModel extends BaseViewModel {
   final ApiService _apiService = locator<ApiService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
-  Future navigateToHome() async {
-    await _navigationService.clearStackAndShow(Routes.homeView);
+  Future navigateToTrip() async {
+    await _navigationService.navigateWithTransition(
+      TripView(trip: _trip),
+      transition: NavigationTransition.RightToLeft,
+      duration: Duration(milliseconds: 300),
+    );
   }
 
   Future addTrip() async {
-    Trip data = new Trip(
-      agentOriginId: _agentOriginId,
-      agentDestinationId: _agentDestinationId,
-      driverId: _driverId,
-    );
-    await _apiService.addTrip(data);
-    return navigateToHome();
+    await _apiService.addTrip(_trip);
+    return navigateToTrip();
   }
 
   Future getAgentList() async {
@@ -50,24 +49,8 @@ class AddViewModel extends BaseViewModel {
   List<Agent> _agentList;
   List<Agent> get agentList => _agentList;
 
-  // List get agentList => _agentList;
-
-  // set agentList(List value) => _agentList = value;
-
-  String _agentOriginId;
-  void agentOriginId(String value) {
-    _agentOriginId = value;
-  }
-
-  String _agentDestinationId;
-  void agentDestinationId(String value) {
-    _agentDestinationId = value;
-  }
-
-  String _driverId;
-  void driverId(String value) {
-    _driverId = value;
-  }
+  Trip _trip = Trip();
+  Trip get trip => _trip;
 
   String _setLabel = 'Add your trip details';
   String get setLabel => _setLabel;

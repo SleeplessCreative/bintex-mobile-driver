@@ -43,6 +43,9 @@ dependencies:
   # spinkit for loading animation
   flutter_spinkit: "^4.1.2"
 
+  # sliding up panel
+  sliding_up_panel: ^1.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

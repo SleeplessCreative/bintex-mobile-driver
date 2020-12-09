@@ -1,7 +1,7 @@
-import '../../../datamodels/enum.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../datamodels/enum.dart';
 import '../../custom_widget/custom_widget.dart';
 import '../../custom_widget/widgets/bintex_button.dart';
 import '../../values.dart';
@@ -54,7 +54,7 @@ class AddView extends StatelessWidget {
                   context: context,
                   model: model,
                   function: () {
-                    model.driverId('1');
+                    model.trip.setDriverId = '1';
                     return model.addTrip();
                   },
                   label: model.goButtonLabel,
