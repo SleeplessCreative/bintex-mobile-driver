@@ -46,6 +46,11 @@ dependencies:
   # sliding up panel
   sliding_up_panel: ^1.0.2
 
+  # maps related
+  google_maps_flutter: 1.0.6
+  location: ^3.1.0
+  flutter_polyline_points: ^0.2.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

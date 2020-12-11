@@ -20,11 +20,13 @@ class Routes {
   static const String homeView = '/home-view';
   static const String addView = '/add-view';
   static const String tripView = '/trip-view';
+  static const String mapView = '/map-view';
   static const all = <String>{
     authView,
     homeView,
     addView,
     tripView,
+    mapView,
   };
 }
 

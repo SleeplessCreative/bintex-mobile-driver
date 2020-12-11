@@ -1,4 +1,3 @@
-import '../trip/trip_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -6,6 +5,7 @@ import '../../../app/locator.dart';
 import '../../../datamodels/agent.dart';
 import '../../../datamodels/trip.dart';
 import '../../../services/api_service.dart';
+import '../trip/trip_view.dart';
 
 class AddViewModel extends BaseViewModel {
   final ApiService _apiService = locator<ApiService>();

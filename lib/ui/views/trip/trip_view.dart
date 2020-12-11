@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../datamodels/trip.dart';
+import '../../custom_widget/widgets/bintex_button.dart';
 import '../../values.dart';
 import 'trip_viewmodel.dart';
 
@@ -20,9 +22,7 @@ class TripView extends StatelessWidget {
         child: Scaffold(
           body: Stack(
             children: <Widget>[
-              Container(
-                color: BintexColor.primary200(),
-              ),
+              googleMap(context: context, model: model),
               SlidingUpPanel(
                 controller: model.panelController,
                 defaultPanelState: PanelState.CLOSED,
@@ -31,8 +31,8 @@ class TripView extends StatelessWidget {
                 backdropColor: Colors.transparent,
                 backdropEnabled: true,
                 backdropTapClosesPanel: true,
-                minHeight: 210,
-                maxHeight: getScreenHeight(context) * 0.45,
+                minHeight: 200,
+                maxHeight: 280,
                 color: BintexColor.primary300(),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
@@ -69,16 +69,16 @@ class TripView extends StatelessWidget {
                         center: model.tripData.agentDestinationAddress,
                         bottom: model.tripData.agentDestinationId,
                       ),
-                      // bintexButton(
-                      //   context: context,
-                      //   model: model,
-                      //   function: () => print('ayy'),
-                      //   label: 'data',
-                      // ),
+                      bintexButton(
+                        context: context,
+                        model: model,
+                        function: () => model.navigateToHome(),
+                        label: 'Done',
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -86,6 +86,22 @@ class TripView extends StatelessWidget {
       viewModelBuilder: () => TripViewModel(),
     );
   }
+}
+
+Widget googleMap({BuildContext context, dynamic model}) {
+  return GoogleMap(
+    initialCameraPosition: model.initialCameraPosition,
+    mapType: MapType.normal,
+    tiltGesturesEnabled: false,
+    zoomControlsEnabled: false,
+    zoomGesturesEnabled: false,
+    rotateGesturesEnabled: false,
+    scrollGesturesEnabled: false,
+    polylines: model.polylines,
+    onMapCreated: (GoogleMapController controller) {
+      model.controller.complete(controller);
+    },
+  );
 }
 
 Widget tripItem({

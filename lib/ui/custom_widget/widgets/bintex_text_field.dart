@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../datamodels/enum.dart';
 import '../../values.dart';
@@ -80,9 +81,13 @@ Widget bintexDropDownFromAPI({
       if (type == textField.destination) {
         model.trip.setAgentDestinationId = suggestion.agentId.toString();
         model.trip.setAgentDestinationAddress = suggestion.address.toString();
+        model.trip.setAgentDestinationLatLng =
+            LatLng(3.622883293517327, 98.50192379703859);
       } else {
         model.trip.setAgentOriginId = suggestion.agentId.toString();
         model.trip.setAgentOriginAddress = suggestion.address.toString();
+        model.trip.setAgentOriginLatLng =
+            LatLng(3.573322064953924, 98.63859225301537);
       }
     },
   );

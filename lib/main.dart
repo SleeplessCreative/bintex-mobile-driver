@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bintex Driver',
-      initialRoute: rt.Routes.addView,
+      initialRoute: rt.Routes.authView,
       onGenerateRoute: rt.Router().onGenerateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
     );
