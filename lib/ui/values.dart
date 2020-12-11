@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BintexColor {
+  static const Color StatusGreen = Color(0xFF00C7B7);
+  static const Color StatusYellow = Color(0xFFF6BC00);
+  static const Color StatusRed = Color(0xFFFB6A75);
+
   static Color primary100(double opacity) {
     return Color.fromRGBO(42, 61, 102, opacity);
   }

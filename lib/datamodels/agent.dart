@@ -1,14 +1,18 @@
 import 'dart:convert';
 
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 class Agent {
   int agentId;
   String district;
   String address;
+  LatLng latLng;
   String get getAddress => address;
 
   Agent({
     this.agentId,
     this.district,
+    this.latLng,
     this.address,
   });
 
@@ -16,6 +20,7 @@ class Agent {
     return {
       'agent_id': agentId,
       'district': district,
+      'latLng': latLng,
       'address': address,
     };
   }
@@ -26,6 +31,7 @@ class Agent {
     return Agent(
       agentId: map['agent_id'],
       district: map['district'],
+      latLng: map['latLng'],
       address: map['address'],
     );
   }
