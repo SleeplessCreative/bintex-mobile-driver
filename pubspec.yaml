@@ -44,6 +44,8 @@ dependencies:
   flutter_spinkit: "^4.1.2"
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.8.1
+
   flutter_test:
     sdk: flutter
 
@@ -72,3 +74,11 @@ flutter:
         style: normal
       - asset: lib/assets/font/OpenSans-SemiBold.ttf
         weight: 600
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "lib/assets/launcher/icon.png"
+  image_path_android: "lib/assets/launcher/icon.png"
+  adaptive_icon_background: "lib/assets/launcher/background.png"
+  adaptive_icon_foreground: "lib/assets/launcher/foreground.png"
